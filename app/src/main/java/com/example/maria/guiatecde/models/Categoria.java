@@ -9,6 +9,7 @@ public class Categoria {
     private String url;
 
     public String getNombre() {
+
         return nombre;
     }
 
