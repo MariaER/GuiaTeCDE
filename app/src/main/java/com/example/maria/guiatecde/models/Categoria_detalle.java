@@ -1,26 +1,30 @@
 package com.example.maria.guiatecde.models;
 
-import java.security.PublicKey;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.maria.guiatecde.util.BD_Conexion;
+
 import java.util.Date;
 
 /**
  * Created by Maria on 26/06/2016.
  */
-public class Categoria_detalle {
+public class Categoria_detalle extends BD_Conexion {
 
     private int cd_id;
     private int cat_id;
-    private String cd_nombre;
-    private String cd_direccion;
-    private String cd_email;
-    private String cd_webpage;
-    private String cd_descripcion;
-    private String cd_observacion;
-    private String cd_latitudgps;
-    private String cd_longitudgps;
-    private String cd_facebook;
-    private String cd_twitter;
-    private Date cd_fecha;
+    private String nombre;
+    private String direccion;
+    private String email;
+    private String webpage;
+    private String descripcion;
+    private String observacion;
+    private String latitudgps;
+    private String longitudgps;
+    private String facebook;
+    private String twitter;
+    private Date f_creacion;
+
 
 
     public int getCd_id() {
@@ -31,91 +35,99 @@ public class Categoria_detalle {
         this.cd_id = cd_id;
     }
 
-    public String getCd_nombre() {
-        return cd_nombre;
+    public int getCat_id() {
+        return cat_id;
     }
 
-    public void setCd_nombre(String cd_nombre) {
-        this.cd_nombre = cd_nombre;
+    public void setCat_id(int cat_id) {
+        this.cat_id = cat_id;
     }
 
-    public String getCd_direccion() {
-        return cd_direccion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCd_direccion(String cd_direccion) {
-        this.cd_direccion = cd_direccion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getCd_email() {
-        return cd_email;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setCd_email(String cd_email) {
-        this.cd_email = cd_email;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getCd_webpage() {
-        return cd_webpage;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCd_webpage(String cd_webpage) {
-        this.cd_webpage = cd_webpage;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCd_descripcion() {
-        return cd_descripcion;
+    public String getWebpage() {
+        return webpage;
     }
 
-    public void setCd_descripcion(String cd_descripcion) {
-        this.cd_descripcion = cd_descripcion;
+    public void setWebpage(String webpage) {
+        this.webpage = webpage;
     }
 
-    public String getCd_observacion() {
-        return cd_observacion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCd_observacion(String cd_observacion) {
-        this.cd_observacion = cd_observacion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getCd_latitudgps() {
-        return cd_latitudgps;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setCd_latitudgps(String cd_latitudgps) {
-        this.cd_latitudgps = cd_latitudgps;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
-    public String getCd_longitudgps() {
-        return cd_longitudgps;
+    public String getLatitudgps() {
+        return latitudgps;
     }
 
-    public void setCd_longitudgps(String cd_longitudgps) {
-        this.cd_longitudgps = cd_longitudgps;
+    public void setLatitudgps(String latitudgps) {
+        this.latitudgps = latitudgps;
     }
 
-    public String getCd_facebook() {
-        return cd_facebook;
+    public String getLongitudgps() {
+        return longitudgps;
     }
 
-    public void setCd_facebook(String cd_facebook) {
-        this.cd_facebook = cd_facebook;
+    public void setLongitudgps(String longitudgps) {
+        this.longitudgps = longitudgps;
     }
 
-    public String getCd_twitter() {
-        return cd_twitter;
+    public String getFacebook() {
+        return facebook;
     }
 
-    public void setCd_twitter(String cd_twitter) {
-        this.cd_twitter = cd_twitter;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
-    public Date getCd_fecha() {
-        return cd_fecha;
+    public String getTwitter() {
+        return twitter;
     }
 
-    public void setCd_fecha(Date cd_fecha) {
-        this.cd_fecha = cd_fecha;
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
+    public Date getF_creacion() {
+        return f_creacion;
+    }
+
+    public void setF_creacion(Date f_creacion) {
+        this.f_creacion = f_creacion;
     }
 }

@@ -1,12 +1,9 @@
 package com.example.maria.guiatecde;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,14 +12,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.maria.guiatecde.adapter.ItemAdapter;
 import com.example.maria.guiatecde.models.Categoria;
+import com.example.maria.guiatecde.util.BD_Ejecuta;
+import com.example.maria.guiatecde.util.BD_Conexion;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +46,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setList();
+        /*this.i_categoria = (TextView) findViewById(R.id.txt_item);
+        this.i_categoria.setAdapter(new ItemAdapter(R.layout.item_categoria, new Categoria().getLista());*/
+
+
+       // getLista();
     }
 
-    private void setList() {
+    //private void getList() {
 
-        ArrayList<Categoria> categoriaArrayList = new ArrayList<Categoria>();
+        //ArrayList<Categoria> categoriaArrayList = new ArrayList<Categoria>();
 
-        Categoria categoria1 = new Categoria();
+       /* Categoria categoria1 = new Categoria();
         categoria1.setNombre("Hoteles");
         categoriaArrayList.add(categoria1);
 
@@ -74,16 +83,28 @@ public class MainActivity extends AppCompatActivity
 
         Categoria categoria7 = new Categoria();
         categoria7.setNombre("Casinos");
-        categoriaArrayList.add(categoria7);
+        categoriaArrayList.add(categoria7);*/
+
+        /*RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_main);
+        ItemAdapter itemAdapter = new ItemAdapter(R.layout.item_categoria, new Categoria().getLista());
+        recyclerView.set
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_main);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new ItemAdapter(categoriaArrayList, R.layout.item_categoria));
+        ItemAdapter itemAdapter = new ItemAdapter(R.layout.item_categoria, new Categoria().getLista());
+
+    //recyclerView.setHasFixedSize(true);
+        /*recyclerView.setAdapter(new ItemAdapter(listac, R.layout.item_categoria));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setItemAnimator(new DefaultItemAnimator());*/
 
 
-    }
+    //}
+
+
+
+
+      //  }*/
+
 
     @Override
     public void onBackPressed() {

@@ -1,27 +1,65 @@
 package com.example.maria.guiatecde.models;
 
+import com.example.maria.guiatecde.util.BD_Conexion;
+import com.example.maria.guiatecde.util.BD_Ejecuta;
+
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Created by Maria on 26/06/2016.
  */
-public class Categoria {
+public class Categoria extends BD_Conexion {
 
-    private String nombre;
-    private String url;
+    private int cat_id;
+    private String c_nombre;
+    private Date f_creacion;
+    public ArrayList<Categoria> getLista(){
+        BD_Conexion bd = new BD_Conexion();
 
-    public String getNombre() {
+        ArrayList<Categoria> listac = new ArrayList<>();
+        try{
+            ResultSet resultSet = bd.select("SELECT cat_nombre FROM categorias");
+            if(resultSet != null){
+                while(resultSet.next()){
+                    Categoria obj = new Categoria();
+                    obj.setC_nombre(resultSet.getString("nombre"));
+                    listac.add(obj);
+                    obj = null;
+                }
 
-        return nombre;
+            }
+        }catch (Exception ex){
+            this.mensaje = ex.getMessage();
+            this.estado = false;
+        }
+        return listac;
+
+        }
+
+    public int getCat_id() {
+        return cat_id;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCat_id(int cat_id) {
+        this.cat_id = cat_id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getC_nombre() {
+        return c_nombre;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setC_nombre(String c_nombre) {
+        this.c_nombre = c_nombre;
+    }
+
+    public Date getF_creacion() {
+        return f_creacion;
+    }
+
+    public void setF_creacion(Date f_creacion) {
+        this.f_creacion = f_creacion;
     }
 }
