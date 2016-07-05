@@ -1,8 +1,8 @@
 package com.example.maria.guiatecde.models;
 
-import com.example.maria.guiatecde.util.BD_Conexion;
-import com.example.maria.guiatecde.util.BD_Ejecuta;
+import android.util.Log;
 
+import com.example.maria.guiatecde.util.BD_Conexion;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -16,28 +16,6 @@ public class Categoria extends BD_Conexion {
     private int cat_id;
     private String c_nombre;
     private Date f_creacion;
-    public ArrayList<Categoria> getLista(){
-        BD_Conexion bd = new BD_Conexion();
-
-        ArrayList<Categoria> listac = new ArrayList<>();
-        try{
-            ResultSet resultSet = bd.select("SELECT cat_nombre FROM categorias");
-            if(resultSet != null){
-                while(resultSet.next()){
-                    Categoria obj = new Categoria();
-                    obj.setC_nombre(resultSet.getString("nombre"));
-                    listac.add(obj);
-                    obj = null;
-                }
-
-            }
-        }catch (Exception ex){
-            this.mensaje = ex.getMessage();
-            this.estado = false;
-        }
-        return listac;
-
-        }
 
     public int getCat_id() {
         return cat_id;
@@ -61,5 +39,29 @@ public class Categoria extends BD_Conexion {
 
     public void setF_creacion(Date f_creacion) {
         this.f_creacion = f_creacion;
+    }
+
+    public static ArrayList<Categoria> getLista(){
+        BD_Conexion bd = new BD_Conexion();
+
+        ArrayList<Categoria> listac = new ArrayList<>();
+        try{
+            ResultSet resultSet = bd.select("SELECT cat_nombre FROM categorias");
+
+            if(resultSet != null){
+                while(resultSet.next()){
+                    Categoria obj = new Categoria();
+                    obj.setC_nombre(resultSet.getString(1));
+                    listac.add(obj);
+                    obj = null;
+                }
+
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+
+        }
+        return listac;
+
     }
 }

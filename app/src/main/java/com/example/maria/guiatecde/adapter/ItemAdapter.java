@@ -1,20 +1,16 @@
 package com.example.maria.guiatecde.adapter;
 
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.maria.guiatecde.R;
 import com.example.maria.guiatecde.models.Categoria;
-import com.example.maria.guiatecde.util.BD_Conexion;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -22,46 +18,18 @@ import java.util.ArrayList;
  */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
-   // private ArrayList<Categoria> categorias;
-   //private int itemLayout;
+    private ArrayList<Categoria> listac;
+    private int itemLayout;
 
-  // public class ItemAdapter extends ArrayAdapter<Categoria>  {
-
-
-      // private Context context;
-       private ArrayList<Categoria> listac;
-
-       public ItemAdapter(int itemLayout, ArrayList<Categoria> listac){
-          // super(context, 0, listac);
-         //  this.context = context;
-           this.listac = listac;
-           this.listac = listac;
-       }
-
-   /* @Override
-    public View getView(int posicion, View convertView, ViewGroup parent){
-        final Categoria itemPosicion = this.listac.get(posicion);
-
-        convertView = LayoutInflater.from(this.context).inflate(R.layout.item_categoria, null);
-        final View layout = convertView;
-
-        TextView textView = (TextView) convertView.findViewById(R.id.txt_item);
-        textView.setText(itemPosicion.getC_nombre());
-        return convertView;
-    }*/
-//}
-
-
-
-
-   /* public ItemAdapter(ArrayList<Categoria> listac, int itemLayout){
-        this.lista = listac ;
+    public ItemAdapter(int itemLayout, ArrayList<Categoria> listac) {
         this.itemLayout = itemLayout;
-    }*/
+        this.listac = listac;
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
         return new ViewHolder(v);
 
     }
@@ -79,13 +47,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return listac.size();
     }
 
-       //}
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView itemNombre;
-        public ImageView itemImage;
 
-        public ViewHolder(View itemView){
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView itemNombre;
+        private ImageView itemImage;
 
+        private ViewHolder(View itemView) {
             super(itemView);
 
             itemNombre = (TextView) itemView.findViewById(R.id.txt_item);
@@ -95,7 +62,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     }
 
-        }
+}
 
 
 

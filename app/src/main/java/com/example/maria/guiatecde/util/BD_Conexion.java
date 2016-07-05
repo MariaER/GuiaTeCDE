@@ -10,11 +10,11 @@ import java.sql.ResultSet;
 public class BD_Conexion extends Default implements Runnable {
 
     private Connection conexion;
-    private String host = "192.168.0.101";
+    private String host = "192.168.1.61";
     private String base = "guiatecde";
     private int puerto = 5432;
     private String usuario = "postgres";
-    private String password = "12345";
+    private String password = "postgres";
     private String url = "jdbc:postgresql://%s:%d/%s";
 
     public BD_Conexion(){
