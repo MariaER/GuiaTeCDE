@@ -22,4 +22,31 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
+    <fragment
+        android:name="com.example.maria.guiatecde.fragmentos.PerfilFrag"
+        android:id="@+id/perfil_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <fragment
+        android:name="com.example.maria.guiatecde.fragmentos.InicioFrag"
+        android:id="@+id/inicio_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <fragment
+        android:name="com.example.maria.guiatecde.fragmentos.FavoritosFrag"
+        android:id="@+id/favoritos_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <fragment
+        android:name="com.example.maria.guiatecde.fragmentos.EncuestaFrag"
+        android:id="@+id/enc_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 </android.support.v4.widget.DrawerLayout>

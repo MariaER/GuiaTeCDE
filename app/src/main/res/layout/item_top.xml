@@ -5,7 +5,7 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:layout_margin="10dp"
-    android:id="@+id/card_view"
+    android:id="@+id/cv_top"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="10dp"
@@ -20,14 +20,14 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/img_item" />
+        android:id="@+id/img_ittop" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/txt_item"
+        android:id="@+id/txt_ittop"
         android:layout_gravity="center_horizontal"
         android:gravity="center_vertical"
         />

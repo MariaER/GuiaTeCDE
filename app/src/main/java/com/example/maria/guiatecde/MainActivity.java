@@ -2,6 +2,8 @@ package com.example.maria.guiatecde;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.maria.guiatecde.fragmentos.EncuestaFrag;
+import com.example.maria.guiatecde.fragmentos.FavoritosFrag;
+import com.example.maria.guiatecde.fragmentos.PerfilFrag;
+import com.example.maria.guiatecde.fragmentos.TopFrag;
 import com.example.maria.guiatecde.adapter.ItemAdapter;
 import com.example.maria.guiatecde.models.Categoria;
 
@@ -39,10 +45,12 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
         getLista();
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_main);
+        recyclerView.setHasFixedSize(true);
+
+
     }
 
     private void getLista() {
@@ -96,23 +104,66 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_main);
+
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_top) {
-
-        } else if (id == R.id.nav_favorite) {
+            setContentView(R.layout.activity_main);
 
         } else if (id == R.id.nav_profile) {
-
+            setFragment(1);
+        } else if (id == R.id.nav_top) {
+            setFragment(2);
+        } else if (id == R.id.nav_favorite) {
+            setFragment(3);
         } else if (id == R.id.nav_question) {
-
+            setFragment(4);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void setFragment(int position) {
+        FragmentManager fragmentManager;
+      //  FragmentManager fragmentManager = getFragmentManager();
+
+        //TODO me da estos errores en los Frag
+        switch (position) {
+            case 1:
+
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                PerfilFrag perFrag = new PerfilFrag();
+                fragmentTransaction.replace(R.id.content_fragment, perFrag);
+                fragmentTransaction.commit();
+                break;
+            case 2:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                TopFrag topFrag = new TopFrag();
+                fragmentTransaction.replace(R.id.content_fragment, topFrag);
+                fragmentTransaction.commit();
+                break;
+            case 3:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                FavoritosFrag favoritosFrag = new FavoritosFrag();
+                fragmentTransaction.replace(R.id.content_fragment, favoritosFrag);
+                fragmentTransaction.commit();
+                break;
+            case 4:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                EncuestaFrag encuestaFrag = new EncuestaFrag();
+                fragmentTransaction.replace(R.id.content_fragment, encuestaFrag);
+                fragmentTransaction.commit();
+                break;
+        }
+    }
 }
+
+
+
